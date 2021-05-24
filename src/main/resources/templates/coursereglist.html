@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Student</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head> 
+
+<body>
+<div class="container">
+
+    <form th:action="@{/logout}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="" type="Submit"></button>
+    </form>
+
+    <div class="panel-group" style="margin-top:40px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span th:utext="${userName}"></span>
+            </div>
+            <div class="panel-body" align="center">
+                <h1>Course Registration List</h1>
+                <a href="/add/coursereg">Register Course</a>
+                <br/><br/>
+                <table border="1" cellpadding="10">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Mat. No</th>
+                            <th>Course Code</th>
+                            <th>Term</th>
+                            <th>Session </th>
+                             <th>Actions</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr th:each="coursereg : ${listCoursereg}">
+                            <td th:text="${coursereg.id}">Student ID</td>
+                            <td th:text="${coursereg.matno}">First Name</td>
+                            <td th:text="${coursereg.coursecode}">Last Name</td>
+                            <td th:text="${coursereg.term}">Email</td>
+                            <td th:text="${coursereg.academicsession}">Academic Session</td>
+                            <td>
+                                <a th:href="@{/edit/{id}(id=${coursereg.id})}">Edit</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a th:href="@{/delete/{id}(id=${coursereg.id})}">Delete</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a th:href="@{/detail/{id}(id=${coursereg.id})}">Show</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

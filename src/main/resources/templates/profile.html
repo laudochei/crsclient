@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <meta charset="utf-8" />
+    <title>Student Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    
+<body>
+    <div align="center">
+    <form th:action="@{/list/coursereg}" method="get">
+        <button class="btn btn-md btn-warning btn-block" type="Submit">Student Details Page</button>
+    </form>
+        <h1>Student Details</h1>
+        <br />
+<!--            <a href="/list/student">List of Students</a>-->
+            <table border="0" cellpadding="10">
+                <tr>
+                <td>ID:</td>
+                <td th:text="${coursereg.id}"></td>
+            </tr>
+            <tr>
+                <td>Matno No:</td>
+                <td th:text="${coursereg.matno}"></td>
+            </tr>
+            <tr>
+                <td>Course Code:</td>
+                <td th:text="${coursereg.coursecode}"></td>
+            </tr>
+            <tr>
+                <td>Term:</td>
+                <td th:text="${coursereg.term}"></td>
+            </tr>
+                
+                <tr>
+                <td>Academic Session:</td>
+                <td th:text="${coursereg.academicsession}"></td>
+            </tr>
+            
+            </table>
+       
+    </div>
+</body>
+</html>
