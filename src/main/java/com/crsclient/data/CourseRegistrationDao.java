@@ -24,4 +24,5 @@ public interface CourseRegistrationDao {
     
     //methods to consume REST API
     List<CourseRegistration> findAll_API();
+    void delete_API(Integer regID);
 }

@@ -299,6 +299,7 @@ public class CourseRegistrationDaoImpl implements CourseRegistrationDao{
 	}
         
         
+        
                
         private SqlParameterSource getSqlParameterByModel(CourseRegistration courseregistration) {
             MapSqlParameterSource paramSource = new MapSqlParameterSource();
@@ -323,4 +324,19 @@ public class CourseRegistrationDaoImpl implements CourseRegistrationDao{
                 return courseregistration;
             }
 	}   
+        
+        
+        // Spring RestTemplate methods to consume DELETE API
+        public void delete_API(Integer id)
+        {
+            final String uri = "https://courseregistrationsystem.herokuapp.com/api/v1/courseregistration/{id}";
+            RestTemplate restTemplate = new RestTemplate();
+            Map<String, Object> params = new HashMap<String, Object>();
+            params.put("id", id);
+            restTemplate.delete (uri, params);
+        }
+
+        
+        
+        
 }
