@@ -70,7 +70,7 @@ public class CourseRegistrationController {
             int courseCodeExists = courseregistrationService.CourseCodeExists(coursereg.getCoursecode());
             if (courseCodeExists > 0) {
                 bindingResult
-                        .rejectValue("courseCode", "error.coursereg",
+                        .rejectValue("coursecode", "error.coursereg",
                                 "There is already a course registration for this student");
             }
             if (bindingResult.hasErrors()) {
