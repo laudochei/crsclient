@@ -335,8 +335,20 @@ public class CourseRegistrationDaoImpl implements CourseRegistrationDao{
             params.put("id", id);
             restTemplate.delete (uri, params);
         }
-
         
         
-        
+        private  void update_API(Integer id, CourseRegistration courseregistration)
+        {
+            final String uri = "https://courseregistrationsystem.herokuapp.com/api/v1/courseregistration/{id}";
+            RestTemplate restTemplate = new RestTemplate();
+            Map<String, Object> params = new HashMap<String, Object>();
+            params.put("id", id);
+            CourseRegistration coursereg = new CourseRegistration();
+            coursereg.setId(courseregistration.getId());
+            coursereg.setMatno(courseregistration.getMatno());
+            coursereg.setCoursecode(courseregistration.getCoursecode());
+            coursereg.setTerm(courseregistration.getTerm());
+            coursereg.setAcademicsession(courseregistration.getAcademicsession());
+            restTemplate.put ( uri, coursereg, params );
+        }
 }
